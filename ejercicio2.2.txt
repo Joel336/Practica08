@@ -1,0 +1,68 @@
+NroPrimo: param_1
+
+| cont_1 nprim|
+cont_1 := 0.
+nprim := 0.
+2 to: param_1 do: [:i |
+	cont_1 := 0.
+   2 to: i do: [ :j |
+	i % j = 0
+	ifTrue: [
+ 	cont_1:= cont_1 + 1.
+	]
+	].
+	(cont_1 > 1)
+	ifFalse: [
+	nprim := nprim +1.
+	]
+].
+^ nprim
+
+
+----------------------------------------------
+
+
+esPrimo: param_1
+
+|cont_1 |
+	cont_1 := 0.
+   2 to: param_1  do: [ :j |
+	param_1  % j = 0
+	ifTrue: [
+ 	cont_1:= cont_1 + 1.
+	]
+	].
+	(cont_1 > 1)
+	ifTrue: [ 
+	^ false.
+	]
+	ifFalse: [
+		^ true.
+	]
+	
+
+
+-------------------------------------------------
+
+| obj x tam Prim Res num text|
+Res:=1.
+obj:= MiPrimeraClase new.
+2 to: 100 do: [:i |
+	Res:=1.
+	Prim:= obj esPrimo: i.
+	(Prim = true)
+	ifTrue: [ 
+	x:= obj NroPrimo: i.
+	text:= i asString.
+	tam:= text size.
+	1 to: tam do: [:j | 
+		num:= text at: j.
+		num:= num asInteger -48.
+		Res:=Res * num.
+		 ].
+	(Res = x)
+	ifTrue: [
+			Transcript show: (i asString), ' es valido'; cr.	
+	].
+	 ].
+]

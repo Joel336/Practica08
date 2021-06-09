@@ -1,0 +1,47 @@
+esPrimo: param_1
+
+|cont_1 |
+	cont_1 := 0.
+   2 to: param_1  do: [ :j |
+	param_1  % j = 0
+	ifTrue: [
+ 	cont_1:= cont_1 + 1.
+	]
+	].
+	(cont_1 > 1)
+	ifTrue: [ 
+	^ false.
+	]
+	ifFalse: [
+		^ true.
+	]
+
+
+-----------------------------------------------
+binario: num
+	| rpta conte|
+	rpta:=''.
+	conte:= num.
+	[conte>0] whileTrue: [ 
+		((conte%2)=0)
+		ifTrue: [ rpta:='0',rpta. ]
+		ifFalse:[rpta:='1',rpta. ].
+		conte:=conte//2.
+	].
+	^rpta
+
+----------------------------------------------
+| obj cont x i|
+
+obj := C_primera new.
+i:=0.
+cont:=2.
+[ i<10 ] whileTrue:[
+	x:= obj palindromo: cont.
+	(x=true)
+	ifTrue: [
+		Transcript show: (cont asString), ' es palindromo';cr. 
+		i:=i+1.
+	].
+	cont:=cont+1.
+].

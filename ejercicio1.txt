@@ -1,0 +1,9 @@
+inter: x with:y with:r with:x2 with:y2 with:r2
+
+	| var_1 var_2 rpta|
+	var_1 := (((x2-x) squared) + ((y2-y) squared) ) sqrt.
+	var_2:= r + r2.
+	(var_1 <= var_2)
+	ifTrue: [ rpta:='Se intersecan'.]
+	ifFalse: [ rpta:='No se intersecan'.].
+	^rpta
